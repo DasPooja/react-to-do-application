@@ -1,0 +1,19 @@
+.todo-card {
+    position: relative;
+    justify-content: center;
+    display: flex;
+    width: 20%;
+    height: 200px;
+    background-color: aqua;
+    gap: 2;
+    padding: 4%;
+    margin: 2%;
+    border-radius: 5%;
+}
+
+.add-button {
+    margin: 2%;
+    height: 30px;
+    align-items: start;
+    position: relative;
+}
