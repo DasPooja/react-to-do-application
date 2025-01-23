@@ -7,14 +7,14 @@ function TaskForm () {
 
 
     const onSubmitTask = (e) => {
-        e.preventdefault();
+        // e.preventdefault();
         // console.log("e", e);
-    }
+  
+}
     // console.log("values", addTitle, addContent);
-
-    localStorage.setItem("taskDetails", addTitle, addContent)
-    // localStorage.setItem("title", addTitle);
-    // localStorage.setItem("content", addContent);
+    localStorage.setItem("title", addTitle) 
+    localStorage.setItem("content", addContent)
+    
 
     return (
         <div className="add-form">
