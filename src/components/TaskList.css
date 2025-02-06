@@ -91,6 +91,16 @@ button:hover {
   .modal h2 {
     margin-top: 0;
   }
+
+  .modal form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal label {
+    font-weight: bold;
+    text-align: left;
+  }
   
   .modal input,
   .modal select,

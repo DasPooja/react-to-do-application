@@ -1,57 +1,11 @@
-import { useState } from 'react';
 import {FaTrash, FaEdit} from 'react-icons/fa';
+import TaskForm from './TaskForm';
 import { useTaskContext } from '../contexts/TaskContext';
 import './TaskList.css';
 
+
 function TaskList() {
-    const {tasks, addtask, updateTask, deleteTask} = useTaskContext();
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [currentTask, setCurrentTask] = useState(null);
-    const [taskDetails, setTaskDetails] = useState({
-        title: "",
-        priority: "Low",
-        deadline: "",
-        comment: "",
-    });
-     
-    const generateColor = (index) => {
-        const hue = (index * 137) % 360; // Generate a unique hue value
-        return `hsl(${hue}, 70%, 80%)`; // Soft pastel-like colors
-      };
-
-    const openModal= (task = null) => {
-        setCurrentTask(task);
-        setTaskDetails(task || { 
-            title: "",
-            priority: "Low",
-            deadline: "",
-            comment: "", });
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsModalOpen(false);
-        setCurrentTask(null);
-    };
-
-    const saveTask = (e) => {
-        e.preventDefault();
-
-        if (!taskDetails.title.trim()) {
-            alert("This is required");
-            return;
-        }
-
-        if (currentTask) {
-            // Update an existing task
-            updateTask(currentTask, taskDetails)
-          } else {
-            // Add new task
-            addtask(taskDetails);
-          }
-
-          closeModal();
-    }
+    const {tasks, deleteTask, generateColor, openModal} = useTaskContext();
 
     return (
         <>
@@ -80,53 +34,7 @@ function TaskList() {
                         <p>+</p>
                     </div>
                 </div>
-                
-                {isModalOpen && (
-                    <div className="modal-overlay">
-                        <div className="modal">
-                            <h2>{currentTask ? "Edit Task" : "Add Task"}</h2>
-                            <form onSubmit={saveTask}>
-                                <input
-                                    type="text"
-                                    placeholder="Task Title"
-                                    value={taskDetails.title}
-                                    onChange={(e) =>
-                                    setTaskDetails({ ...taskDetails, title: e.target.value })
-                                    }
-                                    required
-                                />
-                                <select
-                                    value={taskDetails.priority}
-                                    onChange={(e) =>
-                                    setTaskDetails({ ...taskDetails, priority: e.target.value })
-                                    }
-                                >
-                                    <option value="Low">Low</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="High">High</option>
-                                </select>
-                                <input
-                                    type="date"
-                                    value={taskDetails.deadline}
-                                    onChange={(e) =>
-                                    setTaskDetails({ ...taskDetails, deadline: e.target.value })
-                                    }
-                                />
-                                <textarea
-                                    placeholder="Comments"
-                                    value={taskDetails.comment}
-                                    onChange={(e) =>
-                                    setTaskDetails({ ...taskDetails, comment: e.target.value })
-                                    }
-                                />
-                                <div className="modal-actions">
-                                    <button type="button" onClick={closeModal}>Cancel</button>
-                                    <button type="submit">{currentTask ? "Update" : "Add"}</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                )}
+                <TaskForm />
             </div>
         </>
     )
