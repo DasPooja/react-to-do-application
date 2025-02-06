@@ -4,13 +4,13 @@ A simple and intuitive To-Do App built using React.js and Context API for state 
 
 🚀 Features
 
-a. View Tasks: See all your tasks in a clean and organized list.
-b. Add Tasks: Add new tasks with ease using the input field.
-c. Edit Tasks: Modify task details when needed.
-d. Delete Tasks: Remove completed or unnecessary tasks.
-e. Persistent Storage: Tasks are stored in localStorage to ensure they are not lost on page reloads.
-f. Context API for State Management: No props drilling; state is managed globally for better scalability.
-g. Responsive Design: Works seamlessly on both desktop and mobile devices.
+1. View Tasks: See all your tasks in a clean and organized list.
+2. Add Tasks: Add new tasks with ease using the input field.
+3. Edit Tasks: Modify task details when needed.
+4. Delete Tasks: Remove completed or unnecessary tasks.
+5. Persistent Storage: Tasks are stored in localStorage to ensure they are not lost on page reloads.
+6. Context API for State Management: No props drilling; state is managed globally for better scalability.
+7. Responsive Design: Works seamlessly on both desktop and mobile devices.
 
 🛠️ Technologies Used
 
