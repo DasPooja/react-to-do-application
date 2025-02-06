@@ -22,7 +22,7 @@ CSS for styling
 
 2. Navigate to the project directory:
 
-    cd todo-app
+    cd react-to-do-application
 
 3. Install dependencies:
 
